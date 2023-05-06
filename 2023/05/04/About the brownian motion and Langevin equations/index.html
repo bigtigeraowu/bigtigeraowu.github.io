@@ -21,21 +21,17 @@
     var CONFIG = {"hostname":"bigtigeraowu.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Assignment 2-Passive and Active Brownian Particles in Harmonic PotentialThis is an assignment for the statistical class in 2023(Yeah, it’s ongoing for now :D written on 2023 May 5th), directed by Assi">
+  <meta name="description" content="Assignment 2-Passive and Active Brownian Particles in Harmonic Potential This is an assignment for the statistical class in 2023(Yeah, it&#39;s ongoing for now :D written on 2023 May 5th), directed by">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Physical cafeteria">
 <meta property="og:url" content="https://bigtigeraowu.github.io/2023/05/04/About%20the%20brownian%20motion%20and%20Langevin%20equations/index.html">
 <meta property="og:site_name" content="Physical cafeteria">
-<meta property="og:description" content="Assignment 2-Passive and Active Brownian Particles in Harmonic PotentialThis is an assignment for the statistical class in 2023(Yeah, it’s ongoing for now :D written on 2023 May 5th), directed by Assi">
+<meta property="og:description" content="Assignment 2-Passive and Active Brownian Particles in Harmonic Potential This is an assignment for the statistical class in 2023(Yeah, it&#39;s ongoing for now :D written on 2023 May 5th), directed by">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305042103569.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305042103959.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305042104537.png">
 <meta property="article:published_time" content="2023-05-04T12:16:10.648Z">
 <meta property="article:modified_time" content="2023-05-06T02:09:55.031Z">
 <meta property="article:author" content="Jagger">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305042103569.png">
 
 <link rel="canonical" href="https://bigtigeraowu.github.io/2023/05/04/About%20the%20brownian%20motion%20and%20Langevin%20equations/">
 
@@ -199,51 +195,139 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Assignment-2-Passive-and-Active-Brownian-Particles-in-Harmonic-Potential"><a href="#Assignment-2-Passive-and-Active-Brownian-Particles-in-Harmonic-Potential" class="headerlink" title="Assignment 2-Passive and Active Brownian Particles in Harmonic Potential"></a>Assignment 2-Passive and Active Brownian Particles in Harmonic Potential</h1><p>This is an assignment for the statistical class in 2023(Yeah, it’s ongoing for now :D written on 2023 May 5th), directed by Assistant Prof. hi hong You, from which I really suffered but also acquired some interesting skills. Like being able to talk to chatGPT for 10 hours in a day…</p>
-<p>Well, I like this course for the challenges it brought to me, I love challenges. Here are some what the assignments and the corresponding solutions(most of the codes are written by chatGPT) towards them. Hope you(I) enjoy!😉</p>
-<h2 id="2-1-Brownian-particle-in-a-harmonic-potenital"><a href="#2-1-Brownian-particle-in-a-harmonic-potenital" class="headerlink" title="2.1 Brownian particle in a harmonic potenital."></a>2.1 Brownian particle in a harmonic potenital.</h2><p>Consider a Brownian particle with mass m in a one-dimensional space, subject to a viscous<br>drag fv &#x3D; −γv and an external harmonic force fe &#x3D; −kx. Here, x and v are the position and<br>velocity of the particle, respectively. The system’s temperature T is given.</p>
-<ol>
-<li>Write down the full and overdamped Langevin equations of the Brownian particle, including the time correlation of the thermal noise.</li>
+        <h1
+id="assignment-2-passive-and-active-brownian-particles-in-harmonic-potential">Assignment
+2-Passive and Active Brownian Particles in Harmonic Potential</h1>
+<p>This is an assignment for the statistical class in 2023(Yeah, it's
+ongoing for now :D written on 2023 May 5th), directed by Assistant Prof.
+hi hong You, from which I really suffered but also acquired some
+interesting skills. Like being able to talk to chatGPT for 10 hours in a
+day...</p>
+<p>Well, I like this course for the challenges it brought to me, I love
+challenges. Here are some what the assignments and the corresponding
+solutions(most of the codes are written by chatGPT) towards them. Hope
+you(I) enjoy!😉</p>
+<h2 id="brownian-particle-in-a-harmonic-potenital.">2.1 Brownian
+particle in a harmonic potenital.</h2>
+<p>Consider a Brownian particle with mass m in a one-dimensional space,
+subject to a viscous drag fv = −γv and an external harmonic force fe =
+−kx. Here, x and v are the position and velocity of the particle,
+respectively. The system’s temperature T is given.</p>
+<ol type="1">
+<li>Write down the full and overdamped Langevin equations of the
+Brownian particle, including the time correlation of the thermal
+noise.</li>
 </ol>
-<p>Solution:<br>The full Langevin equation:<br>$$\frac{d^2x}{d{t^2}} + \gamma \frac{dx}{dt} + \omega_0^2 x &#x3D; \frac{F(t)}{M}$$<br>The overdamped Langevin equation:<br>$$ \gamma \frac{dx}{dt} + kx &#x3D; \frac{F(t)}{M} $$</p>
-<ol start="2">
-<li>Write down the Fokker-Planck equation (FPE) for the probability distribution P(x, t) of the particle, corresponding to the overdamped Langevin equation.</li>
+<p>Solution: The full Langevin equation: <span
+class="math display">\[\frac{d^2x}{d{t^2}} + \gamma \frac{dx}{dt} +
+\omega_0^2 x = \frac{F(t)}{M}\]</span> The overdamped Langevin equation:
+<span class="math display">\[ \gamma \frac{dx}{dt} + kx = \frac{F(t)}{M}
+\]</span></p>
+<ol start="2" type="1">
+<li>Write down the Fokker-Planck equation (FPE) for the probability
+distribution P(x, t) of the particle, corresponding to the overdamped
+Langevin equation.</li>
 </ol>
-<p>Solution: The Fokker-Planck equation (FPE)<br>$$ \frac{\partial P}{\partial t} &#x3D; \frac{k}{\gamma} [\frac{\partial(xP)}{\partial x} + T\frac{\partial^2P}{\partial x^2}] $$</p>
-<ol start="3">
+<p>Solution: The Fokker-Planck equation (FPE) <span
+class="math display">\[ \frac{\partial P}{\partial t} = \frac{k}{\gamma}
+[\frac{\partial(xP)}{\partial x} + T\frac{\partial^2P}{\partial x^2}]
+\]</span></p>
+<ol start="3" type="1">
 <li>Get the steady-state solution of the FPE.</li>
 </ol>
-<p>Solution:<br>$$P(x) &#x3D; ( \frac {k}{2 \pi k_B T}) ^{\frac{1}{2}}exp(-\frac{kx^2}{2 k_B T})$$</p>
-<ol start="4">
+<p>Solution: <span class="math display">\[P(x) = ( \frac {k}{2 \pi k_B
+T}) ^{\frac{1}{2}}exp(-\frac{kx^2}{2 k_B T})\]</span></p>
+<ol start="4" type="1">
 <li>Solve the overdamped Langevin equation numerically</li>
 </ol>
-<p>(1) plot the probability distribution of particles at different time points;</p>
-<p>(2) demonstrate the agreement between the theory and simulations on $P_s(x)$;</p>
-<p>(3) how long does it take for the system to reach steady state;</p>
-<p>(4) get the probability distribution of potential energy at the steady state, as well as the<br>average potential energy.</p>
+<ol type="1">
+<li><p>plot the probability distribution of particles at different time
+points;</p></li>
+<li><p>demonstrate the agreement between the theory and simulations on
+<span class="math inline">\(P_s(x)\)</span>;</p></li>
+<li><p>how long does it take for the system to reach steady
+state;</p></li>
+<li><p>get the probability distribution of potential energy at the
+steady state, as well as the average potential energy.</p></li>
+</ol>
 <p>Solution:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># First we show the code, where N, T, k... are all easy to alter.</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># Constants</span></span><br><span class="line">N = <span class="number">100000</span>  <span class="comment"># Number of particles</span></span><br><span class="line">k = <span class="number">1.0</span>  <span class="comment"># Spring constant</span></span><br><span class="line">gamma = <span class="number">1.0</span>  <span class="comment"># Friction coefficient</span></span><br><span class="line">T = <span class="number">1.0</span>  <span class="comment"># Temperature</span></span><br><span class="line">dt = <span class="number">0.01</span>  <span class="comment"># Time step</span></span><br><span class="line">nsteps = <span class="number">10000</span>  <span class="comment"># Number of time steps</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Initial conditions</span></span><br><span class="line">x = np.zeros(N)  <span class="comment"># Positions</span></span><br><span class="line"><span class="comment"># v = np.zeros(N)  # Velocities</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Harmonic potential function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">V</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.5</span> * k * x**<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Langevin equation function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">langevin</span>(<span class="params">x, dt, gamma, T</span>):</span><br><span class="line">    xi = np.random.randn(N)</span><br><span class="line">    dx = -k/gamma*x*dt+np.sqrt(<span class="number">2</span>*gamma*T*dt)*xi</span><br><span class="line">    <span class="keyword">return</span> x+dx</span><br><span class="line"></span><br><span class="line"><span class="comment"># Simulation loop</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nsteps):</span><br><span class="line">    x = langevin(x, dt, gamma, T)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Histogram of positions at different times</span></span><br><span class="line">fig, ax = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">ax = ax.flatten()</span><br><span class="line"><span class="keyword">for</span> i, t <span class="keyword">in</span> <span class="built_in">enumerate</span>([<span class="number">0</span>, <span class="number">500</span>, <span class="number">1000</span>, <span class="number">10000</span>]):</span><br><span class="line">    ax[i].hist(x, bins=<span class="number">50</span>, density=<span class="literal">True</span>, alpha=<span class="number">0.5</span>, label=<span class="string">&#x27;Simulation&#x27;</span>)</span><br><span class="line">    xx = np.linspace(-<span class="number">5</span>, <span class="number">5</span>, <span class="number">10000</span>)</span><br><span class="line">    ss_prob = np.exp(-V(xx)/(k*T)) / np.sqrt(<span class="number">2</span>*np.pi*k*T)    </span><br><span class="line">    ax[i].plot(xx, ss_prob, label=<span class="string">&#x27;Steady state&#x27;</span>)</span><br><span class="line">    ax[i].set_title(<span class="string">f&#x27;Time = <span class="subst">&#123;t*dt:<span class="number">.2</span>f&#125;</span>&#x27;</span>)</span><br><span class="line">    ax[i].set_xlabel(<span class="string">&#x27;Position&#x27;</span>)</span><br><span class="line">    ax[i].set_ylabel(<span class="string">&#x27;Probability density&#x27;</span>)</span><br><span class="line">    ax[i].legend()    </span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305042103569.png" alt="Results of PBP"></p>
-<p>The simulation results seem to fit the theoretical calculations very well, while the increased particle number N and decreased $k_BT$ introduces better fitting results.</p>
-<p>How long does it take? </p>
-<p>Honestly, I don’t really understand this question, since it is not very easy to judge the time point of reaching ‘steady state’, however, according to the effort from Yi’an Qu, he thinks that the steady state would be reached in (he claims that he identified these results by repeated running for various time. Well, that is really some effort😅.)</p>
-<p>The probability distribution of potential energy at the steady state are shown as follows.</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305042103569.png"
+alt="Results of PBP" />
+<figcaption aria-hidden="true">Results of PBP</figcaption>
+</figure>
+<p>The simulation results seem to fit the theoretical calculations very
+well, while the increased particle number N and decreased <span
+class="math inline">\(k_BT\)</span> introduces better fitting
+results.</p>
+<p>How long does it take?</p>
+<p>Honestly, I don't really understand this question, since it is not
+very easy to judge the time point of reaching 'steady state', however,
+according to the effort from Yi'an Qu, he thinks that the steady state
+would be reached in (he claims that he identified these results by
+repeated running for various time. Well, that is really some
+effort😅.)</p>
+<p>The probability distribution of potential energy at the steady state
+are shown as follows.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define constants</span></span><br><span class="line">N = <span class="number">500</span>  <span class="comment"># number of particles</span></span><br><span class="line">k = <span class="number">1.0</span>  <span class="comment"># spring constant</span></span><br><span class="line">T = <span class="number">1.0</span>  <span class="comment"># temperature</span></span><br><span class="line">gamma = <span class="number">1.0</span>  <span class="comment"># friction coefficient</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot probability distribution as a function of potential energy</span></span><br><span class="line">xx = np.linspace(-<span class="number">5</span>, <span class="number">5</span>, <span class="number">10000</span>)</span><br><span class="line">kk = <span class="number">0.5</span>*xx **<span class="number">2</span>;</span><br><span class="line">ss_prob = np.exp(-V(xx)/(k*T)) / np.sqrt(<span class="number">2</span>*np.pi*k*T)</span><br><span class="line">ee = <span class="number">0.5</span>*xx **<span class="number">2</span> * np.exp(-V(xx)/(k*T)) / np.sqrt(<span class="number">2</span>*np.pi*k*T)</span><br><span class="line">U_avg = np.mean(ee)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Average potential energy:&quot;</span>, U_avg)</span><br><span class="line">plt.figure()</span><br><span class="line">plt.plot(kk, ss_prob, <span class="string">&#x27;r&#x27;</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Energy distribution&#x27;</span> )</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Potential energy&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Probability density&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305042103959.png" alt="The potential energy distribution"></p>
-<h2 id="2-2-ABP’s-in-a-harmonic-potenital"><a href="#2-2-ABP’s-in-a-harmonic-potenital" class="headerlink" title="2.2 ABP’s in a harmonic potenital"></a>2.2 ABP’s in a harmonic potenital</h2><p>Play around 😁with the values of f0 and τ, and:</p>
-<p>(1) plot the probability distribution of ABP’s at the steady state;</p>
-<p>(2) are they similar to those in the equilibrium case;</p>
-<p>(3) if so, extract the effective temperature Teff ;</p>
-<p>(4) show the dependency of effective temperature on $f_0$ and τp, write down Teff as a function of f0 and τp if possible, and argue why it has such dependency.</p>
-<p>Firstly, we try to give the simulation based on the previous PBP. Shown as follows:</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305042103959.png"
+alt="The potential energy distribution" />
+<figcaption aria-hidden="true">The potential energy
+distribution</figcaption>
+</figure>
+<h2 id="abps-in-a-harmonic-potenital">2.2 ABP’s in a harmonic
+potenital</h2>
+<p>Play around 😁with the values of f0 and τ, and:</p>
+<ol type="1">
+<li><p>plot the probability distribution of ABP’s at the steady
+state;</p></li>
+<li><p>are they similar to those in the equilibrium case;</p></li>
+<li><p>if so, extract the effective temperature Teff ;</p></li>
+<li><p>show the dependency of effective temperature on <span
+class="math inline">\(f_0\)</span> and τp, write down Teff as a function
+of f0 and τp if possible, and argue why it has such dependency.</p></li>
+</ol>
+<p>Firstly, we try to give the simulation based on the previous PBP.
+Shown as follows:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># Constants</span></span><br><span class="line">N = <span class="number">1000</span>  <span class="comment"># Number of particles</span></span><br><span class="line">k = <span class="number">1.0</span>  <span class="comment"># Spring constant</span></span><br><span class="line">gamma = <span class="number">1.0</span>  <span class="comment"># Friction coefficient</span></span><br><span class="line">T = <span class="number">1.0</span>  <span class="comment"># Temperature</span></span><br><span class="line">dt = <span class="number">0.005</span>  <span class="comment"># Time step</span></span><br><span class="line">f0 = <span class="number">0.10</span>*(<span class="number">2</span>*<span class="built_in">round</span>(np.random.random())-<span class="number">1</span>) <span class="comment">#defining f0</span></span><br><span class="line">tau = <span class="number">0.01</span> <span class="comment">#flapping time</span></span><br><span class="line">nsteps = <span class="number">100000</span>  <span class="comment"># Number of time steps</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Initial conditions</span></span><br><span class="line">x = np.zeros(N)  <span class="comment"># Positions</span></span><br><span class="line"><span class="comment"># v = np.zeros(N)  # Velocities</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Harmonic potential function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">V</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.5</span> * k * x**<span class="number">2</span></span><br><span class="line">        </span><br><span class="line"><span class="comment"># Langevin equation function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">langevin</span>(<span class="params">x, dt, gamma, T</span>):</span><br><span class="line">    xi = np.random.randn(N)</span><br><span class="line">    dx = -k/gamma*x*dt-f*dt+np.sqrt(<span class="number">2</span>*gamma*T*dt)*xi</span><br><span class="line">    <span class="keyword">return</span> x+dx</span><br><span class="line"></span><br><span class="line"><span class="comment"># Simulation loop</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nsteps):</span><br><span class="line">    <span class="keyword">if</span> np.random.random()&lt;dt/tau:</span><br><span class="line">        f=-f0</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        f=f0</span><br><span class="line">    x = langevin(x, dt, gamma, T)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment"># Histogram of positions at different times</span></span><br><span class="line">fig, ax = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">ax = ax.flatten()</span><br><span class="line"><span class="keyword">for</span> i, t <span class="keyword">in</span> <span class="built_in">enumerate</span>([<span class="number">0</span>, <span class="number">500</span>, <span class="number">1000</span>, <span class="number">10000</span>]):</span><br><span class="line">    ax[i].hist(x, bins=<span class="number">50</span>, density=<span class="literal">True</span>, alpha=<span class="number">0.5</span>, label=<span class="string">&#x27;Simulation&#x27;</span>)</span><br><span class="line">    xx = np.linspace(-<span class="number">5</span>, <span class="number">5</span>, <span class="number">10000</span>)</span><br><span class="line">    ss_prob = np.exp(-V(xx)/(k*T)) / np.sqrt(<span class="number">2</span>*np.pi*k*T)    </span><br><span class="line">    ax[i].plot(xx, ss_prob, label=<span class="string">&#x27;Steady state&#x27;</span>)</span><br><span class="line">    ax[i].set_title(<span class="string">f&#x27;Time = <span class="subst">&#123;t*dt:<span class="number">.2</span>f&#125;</span>&#x27;</span>)</span><br><span class="line">    ax[i].set_xlabel(<span class="string">&#x27;Position&#x27;</span>)</span><br><span class="line">    ax[i].set_ylabel(<span class="string">&#x27;Probability density&#x27;</span>)</span><br><span class="line">    ax[i].legend()    </span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p>According to the simulation results, it seems that the probability distribution of ABP is similar to that in PBP. However, if the tau or f0 is changed, there will be severe shifts(to right or to left) of the positions of the particles. I do not really know whether this is right, however, in the matlab when employing the same method, the possibility distribution is divided into 2 parts(😕WTF). This is really confusing! Also, since the value of dt&#x2F;tau will directly influence the possibilities of the flipping of f, the values of their ratio are limited. If the dt&gt;tau, then the possibility to flip is 100%… The value of $f_0$ have two effects based on the simulation. Firstly, it could make the probability distribution shift, as said before. Moreover, in the matlab simulation, it would make the probability distribution to separate into two parts. Therefore I think the values of tau and $f_0$ directly influence the shape and center location of the $P_s$.</p>
-<p><img src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305042104537.png" alt="ABP simulation in matlab"><br>Based on the previous ‘accomplishments’ in matlab, we could try to extract this specific $T_eff$ as 3(When $f_0$&#x3D;1,dt&#x3D;1,tau&#x3D;10). </p>
-<p>Nevertheless, I can not extract the analytical relationship between $T_eff$, $f_0$ and $\tau$, I managed to find an <a target="_blank" rel="noopener" href="https://www.worldscientific.com/doi/epdf/10.1142/S021947751940008X">article</a> for this question. </p>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>That’s all for the second homework for my statistical physics course. Though I managed to employ chatGPT into this coursework, I do not think that is a bad way of learning! I mean, there are still bunch of things and knowledge I tried to obtain from this process itself, where chatGPT mainly involved in the code-writing part.</p>
+<p>According to the simulation results, it seems that the probability
+distribution of ABP is similar to that in PBP. However, if the tau or f0
+is changed, there will be severe shifts(to right or to left) of the
+positions of the particles. I do not really know whether this is right,
+however, in the matlab when employing the same method, the possibility
+distribution is divided into 2 parts(😕WTF). This is really confusing!
+Also, since the value of dt/tau will directly influence the
+possibilities of the flipping of f, the values of their ratio are
+limited. If the dt&gt;tau, then the possibility to flip is 100%... The
+value of <span class="math inline">\(f_0\)</span> have two effects based
+on the simulation. Firstly, it could make the probability distribution
+shift, as said before. Moreover, in the matlab simulation, it would make
+the probability distribution to separate into two parts. Therefore I
+think the values of tau and <span class="math inline">\(f_0\)</span>
+directly influence the shape and center location of the <span
+class="math inline">\(P_s\)</span>.</p>
+<p><img
+src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305042104537.png"
+alt="ABP simulation in matlab" /><br />
+Based on the previous 'accomplishments' in matlab, we could try to
+extract this specific <span class="math inline">\(T_eff\)</span> as
+3(When <span class="math inline">\(f_0\)</span>=1,dt=1,tau=10).</p>
+<p>Nevertheless, I can not extract the analytical relationship between
+<span class="math inline">\(T_eff\)</span>, <span
+class="math inline">\(f_0\)</span> and <span
+class="math inline">\(\tau\)</span>, I managed to find an <a
+target="_blank" rel="noopener" href="https://www.worldscientific.com/doi/epdf/10.1142/S021947751940008X">article</a>
+for this question.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>That's all for the second homework for my statistical physics course.
+Though I managed to employ chatGPT into this coursework, I do not think
+that is a bad way of learning! I mean, there are still bunch of things
+and knowledge I tried to obtain from this process itself, where chatGPT
+mainly involved in the code-writing part.</p>
 
     </div>
 
@@ -321,7 +405,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Assignment-2-Passive-and-Active-Brownian-Particles-in-Harmonic-Potential"><span class="nav-number">1.</span> <span class="nav-text">Assignment 2-Passive and Active Brownian Particles in Harmonic Potential</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Brownian-particle-in-a-harmonic-potenital"><span class="nav-number">1.1.</span> <span class="nav-text">2.1 Brownian particle in a harmonic potenital.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-ABP%E2%80%99s-in-a-harmonic-potenital"><span class="nav-number">1.2.</span> <span class="nav-text">2.2 ABP’s in a harmonic potenital</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">1.3.</span> <span class="nav-text">Conclusion</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#assignment-2-passive-and-active-brownian-particles-in-harmonic-potential"><span class="nav-number">1.</span> <span class="nav-text">Assignment
+2-Passive and Active Brownian Particles in Harmonic Potential</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#brownian-particle-in-a-harmonic-potenital."><span class="nav-number">1.1.</span> <span class="nav-text">2.1 Brownian
+particle in a harmonic potenital.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#abps-in-a-harmonic-potenital"><span class="nav-number">1.2.</span> <span class="nav-text">2.2 ABP’s in a harmonic
+potenital</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conclusion"><span class="nav-number">1.3.</span> <span class="nav-text">Conclusion</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

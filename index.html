@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"bigtigeraowu.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"bigtigeraowu.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="A place to hide and seek, how about step by and take a cup of coffee?">
@@ -162,7 +162,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/05/04/About%20the%20brownian%20motion%20and%20Langevin%20equations/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2023/05/04/About%20the%20brownian%20motion%20and%20Langevin%20equations/" class="post-title-link" itemprop="url">Brownian motion with solution to Langevin equations</a>
         </h2>
 
         <div class="post-meta">
@@ -179,7 +179,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-05-06 10:09:55" itemprop="dateModified" datetime="2023-05-06T10:09:55+08:00">2023-05-06</time>
+                <time title="Modified: 2023-05-06 14:42:28" itemprop="dateModified" datetime="2023-05-06T14:42:28+08:00">2023-05-06</time>
               </span>
 
           
@@ -216,10 +216,13 @@ respectively. The system’s temperature T is given.</p>
 Brownian particle, including the time correlation of the thermal
 noise.</li>
 </ol>
-<p>Solution: The full Langevin equation: <span
-class="math display">\[\frac{d^2x}{d{t^2}} + \gamma \frac{dx}{dt} +
-\omega_0^2 x = \frac{F(t)}{M}\]</span> The overdamped Langevin equation:
-<span class="math display">\[ \gamma \frac{dx}{dt} + kx = \frac{F(t)}{M}
+<p>Solution: The full Langevin equation:</p>
+<p><span class="math display">\[
+\frac{d^2x}{d{t^2}} + \gamma \frac{dx}{dt} + \omega_0^2 x =
+\frac{F(t)}{M}
+\]</span></p>
+<p>The overdamped Langevin equation: <span class="math display">\[
+\gamma \frac{dx}{dt} + kx = \frac{F(t)}{M}
 \]</span></p>
 <ol start="2" type="1">
 <li>Write down the Fokker-Planck equation (FPE) for the probability
@@ -227,14 +230,17 @@ distribution P(x, t) of the particle, corresponding to the overdamped
 Langevin equation.</li>
 </ol>
 <p>Solution: The Fokker-Planck equation (FPE) <span
-class="math display">\[ \frac{\partial P}{\partial t} = \frac{k}{\gamma}
+class="math display">\[
+\frac{\partial P}{\partial t} = \frac{k}{\gamma}
 [\frac{\partial(xP)}{\partial x} + T\frac{\partial^2P}{\partial x^2}]
 \]</span></p>
 <ol start="3" type="1">
 <li>Get the steady-state solution of the FPE.</li>
 </ol>
-<p>Solution: <span class="math display">\[P(x) = ( \frac {k}{2 \pi k_B
-T}) ^{\frac{1}{2}}exp(-\frac{kx^2}{2 k_B T})\]</span></p>
+<p>Solution: <span class="math display">\[
+P(x) = ( \frac {k}{2 \pi k_B T}) ^{\frac{1}{2}}exp(-\frac{kx^2}{2 k_B
+T})
+\]</span></p>
 <ol start="4" type="1">
 <li>Solve the overdamped Langevin equation numerically</li>
 </ol>
@@ -531,7 +537,7 @@ alt="After rainfall" />
   </span>
   <span class="author" itemprop="copyrightHolder">Jagger</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
 
         
@@ -560,7 +566,7 @@ alt="After rainfall" />
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
@@ -647,6 +653,59 @@ window.addEventListener('pjax:success', () => {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

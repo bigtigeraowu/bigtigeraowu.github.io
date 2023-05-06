@@ -179,7 +179,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-05-06 14:42:28" itemprop="dateModified" datetime="2023-05-06T14:42:28+08:00">2023-05-06</time>
+                <time title="Modified: 2023-05-06 19:37:18" itemprop="dateModified" datetime="2023-05-06T19:37:18+08:00">2023-05-06</time>
               </span>
 
           
@@ -198,24 +198,23 @@ id="assignment-2-passive-and-active-brownian-particles-in-harmonic-potential">As
 2-Passive and Active Brownian Particles in Harmonic Potential</h1>
 <p>This is an assignment for the statistical class in 2023(Yeah, it's
 ongoing for now :D written on 2023 May 5th), directed by Assistant Prof.
-hi hong You, from which I really suffered but also acquired some
+Zhi hong You, from which I really suffered but also acquired some
 interesting skills. Like being able to talk to chatGPT for 10 hours in a
 day...</p>
-<p>Well, I like this course for the challenges it brought to me, I love
-challenges. Here are some what the assignments and the corresponding
-solutions(most of the codes are written by chatGPT) towards them. Hope
-you(I) enjoy!😉</p>
+<p>Well, I like this course, mainly because of the challenges it brought
+to me, I love challenges. Here are some what the assignments and the
+corresponding solutions(most of the codes are written by chatGPT)
+towards them. Hope you(I) enjoy!😉</p>
 <h2 id="brownian-particle-in-a-harmonic-potenital.">2.1 Brownian
 particle in a harmonic potenital.</h2>
 <p>Consider a Brownian particle with mass m in a one-dimensional space,
 subject to a viscous drag fv = −γv and an external harmonic force fe =
 −kx. Here, x and v are the position and velocity of the particle,
 respectively. The system’s temperature T is given.</p>
-<ol type="1">
-<li>Write down the full and overdamped Langevin equations of the
-Brownian particle, including the time correlation of the thermal
-noise.</li>
-</ol>
+<h3
+id="write-down-the-full-and-overdamped-langevin-equations-of-the-brownian-particle-including-the-time-correlation-of-the-thermal-noise.">1.
+Write down the full and overdamped Langevin equations of the Brownian
+particle, including the time correlation of the thermal noise.</h3>
 <p>Solution: The full Langevin equation:</p>
 <p><span class="math display">\[
 \frac{d^2x}{d{t^2}} + \gamma \frac{dx}{dt} + \omega_0^2 x =
@@ -224,35 +223,33 @@ noise.</li>
 <p>The overdamped Langevin equation: <span class="math display">\[
 \gamma \frac{dx}{dt} + kx = \frac{F(t)}{M}
 \]</span></p>
-<ol start="2" type="1">
-<li>Write down the Fokker-Planck equation (FPE) for the probability
+<h3
+id="write-down-the-fokker-planck-equation-fpe-for-the-probability-distribution-px-t-of-the-particle-corresponding-to-the-overdamped-langevin-equation.">2.
+Write down the Fokker-Planck equation (FPE) for the probability
 distribution P(x, t) of the particle, corresponding to the overdamped
-Langevin equation.</li>
-</ol>
+Langevin equation.</h3>
 <p>Solution: The Fokker-Planck equation (FPE) <span
 class="math display">\[
 \frac{\partial P}{\partial t} = \frac{k}{\gamma}
 [\frac{\partial(xP)}{\partial x} + T\frac{\partial^2P}{\partial x^2}]
 \]</span></p>
-<ol start="3" type="1">
-<li>Get the steady-state solution of the FPE.</li>
-</ol>
+<h3 id="get-the-steady-state-solution-of-the-fpe.">3. Get the
+steady-state solution of the FPE.</h3>
 <p>Solution: <span class="math display">\[
 P(x) = ( \frac {k}{2 \pi k_B T}) ^{\frac{1}{2}}exp(-\frac{kx^2}{2 k_B
 T})
 \]</span></p>
-<ol start="4" type="1">
-<li>Solve the overdamped Langevin equation numerically</li>
-</ol>
-<ol type="1">
-<li><p>plot the probability distribution of particles at different time
-points;</p></li>
+<h3 id="solve-the-overdamped-langevin-equation-numerically">4. Solve the
+overdamped Langevin equation numerically</h3>
+<p>**(1) plot the probability distribution of particles at different
+time points;</p>
+<ol start="2" type="1">
 <li><p>demonstrate the agreement between the theory and simulations on
 <span class="math inline">\(P_s(x)\)</span>;</p></li>
 <li><p>how long does it take for the system to reach steady
 state;</p></li>
 <li><p>get the probability distribution of potential energy at the
-steady state, as well as the average potential energy.</p></li>
+steady state, as well as the average potential energy.**</p></li>
 </ol>
 <p>Solution:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># First we show the code, where N, T, k... are all easy to alter.</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># Constants</span></span><br><span class="line">N = <span class="number">100000</span>  <span class="comment"># Number of particles</span></span><br><span class="line">k = <span class="number">1.0</span>  <span class="comment"># Spring constant</span></span><br><span class="line">gamma = <span class="number">1.0</span>  <span class="comment"># Friction coefficient</span></span><br><span class="line">T = <span class="number">1.0</span>  <span class="comment"># Temperature</span></span><br><span class="line">dt = <span class="number">0.01</span>  <span class="comment"># Time step</span></span><br><span class="line">nsteps = <span class="number">10000</span>  <span class="comment"># Number of time steps</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Initial conditions</span></span><br><span class="line">x = np.zeros(N)  <span class="comment"># Positions</span></span><br><span class="line"><span class="comment"># v = np.zeros(N)  # Velocities</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Harmonic potential function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">V</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.5</span> * k * x**<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Langevin equation function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">langevin</span>(<span class="params">x, dt, gamma, T</span>):</span><br><span class="line">    xi = np.random.randn(N)</span><br><span class="line">    dx = -k/gamma*x*dt+np.sqrt(<span class="number">2</span>*gamma*T*dt)*xi</span><br><span class="line">    <span class="keyword">return</span> x+dx</span><br><span class="line"></span><br><span class="line"><span class="comment"># Simulation loop</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nsteps):</span><br><span class="line">    x = langevin(x, dt, gamma, T)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Histogram of positions at different times</span></span><br><span class="line">fig, ax = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">ax = ax.flatten()</span><br><span class="line"><span class="keyword">for</span> i, t <span class="keyword">in</span> <span class="built_in">enumerate</span>([<span class="number">0</span>, <span class="number">500</span>, <span class="number">1000</span>, <span class="number">10000</span>]):</span><br><span class="line">    ax[i].hist(x, bins=<span class="number">50</span>, density=<span class="literal">True</span>, alpha=<span class="number">0.5</span>, label=<span class="string">&#x27;Simulation&#x27;</span>)</span><br><span class="line">    xx = np.linspace(-<span class="number">5</span>, <span class="number">5</span>, <span class="number">10000</span>)</span><br><span class="line">    ss_prob = np.exp(-V(xx)/(k*T)) / np.sqrt(<span class="number">2</span>*np.pi*k*T)    </span><br><span class="line">    ax[i].plot(xx, ss_prob, label=<span class="string">&#x27;Steady state&#x27;</span>)</span><br><span class="line">    ax[i].set_title(<span class="string">f&#x27;Time = <span class="subst">&#123;t*dt:<span class="number">.2</span>f&#125;</span>&#x27;</span>)</span><br><span class="line">    ax[i].set_xlabel(<span class="string">&#x27;Position&#x27;</span>)</span><br><span class="line">    ax[i].set_ylabel(<span class="string">&#x27;Probability density&#x27;</span>)</span><br><span class="line">    ax[i].legend()    </span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
@@ -285,7 +282,8 @@ distribution</figcaption>
 </figure>
 <h2 id="abps-in-a-harmonic-potenital">2.2 ABP’s in a harmonic
 potenital</h2>
-<p>Play around 😁with the values of f0 and τ, and:</p>
+<h3 id="play-around-with-the-values-of-f0-and-τ-and">Play around 😁with
+the values of f0 and τ, and:</h3>
 <ol type="1">
 <li><p>plot the probability distribution of ABP’s at the steady
 state;</p></li>

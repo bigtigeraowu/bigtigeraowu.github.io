@@ -29,7 +29,7 @@
 <meta property="og:description" content="Experimental record for the transient on-off characteristics analysis of the circuit (Conducted on May 10th, 2023) Introduction purpose We would be trying to learn and master the simulation of on">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-05-12T15:22:36.000Z">
-<meta property="article:modified_time" content="2023-05-13T03:48:38.325Z">
+<meta property="article:modified_time" content="2023-05-13T03:50:05.503Z">
 <meta property="article:author" content="Jagger">
 <meta property="article:tag" content="Physics">
 <meta name="twitter:card" content="summary">
@@ -192,7 +192,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-05-13 11:48:38" itemprop="dateModified" datetime="2023-05-13T11:48:38+08:00">2023-05-13</time>
+                <time title="Modified: 2023-05-13 11:50:05" itemprop="dateModified" datetime="2023-05-13T11:50:05+08:00">2023-05-13</time>
               </span>
 
           
@@ -368,8 +368,6 @@ with a low cost? Or maybe further, better and cheaper? I am not sure.
 However, we should never give up on this.</p>
 <p>In the end, there is an overview of the codes for the simulations
 conducted on May 10th, 2023.</p>
-<p>Yifan Gao</p>
-<p>19720202202651</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">* SPICE netlist written by S-Edit Win32 7.03</span><br><span class="line">* Written on May 10, 2023 at 17:03:22</span><br><span class="line"></span><br><span class="line">* Waveform probing commands</span><br><span class="line">.probe</span><br><span class="line">.options probefilename=&quot;sedit.dat&quot;</span><br><span class="line">+ probesdbfile=&quot;E:\class2023\20230426.sdb&quot;</span><br><span class="line">+ probetopmodule=&quot;Inverter&quot;</span><br><span class="line"></span><br><span class="line">* Main circuit: Inverter</span><br><span class="line">C1 Output Gnd &#x27;cap&#x27;</span><br><span class="line">M2 Output Input Gnd Gnd NMOS L=1u W=40u AD=66p PD=24u AS=66p PS=24u </span><br><span class="line">M3 Output Input Vdd Vdd PMOS L=1u W=&#x27;pwidth&#x27; AD=66p PD=24u AS=66p PS=24u</span><br><span class="line">v4 Vdd Gnd 5.0</span><br><span class="line">v5 Input Gnd pulse(0.0 5.0 0 5n 5n 50n 200n)</span><br><span class="line">* pulse (lowv highv delay rise fall pulsewidth period)</span><br><span class="line">* End of main circuit: Inverter</span><br><span class="line">.include &quot;E:\TannerT\tanner\TSpice70\models\ml2_125.md&quot;</span><br><span class="line">.tran/op 1n 1000n start=30n method=bdf</span><br><span class="line">.print tran v(Output,Gnd) v(Input,Gnd)</span><br><span class="line">.param cap=800f</span><br><span class="line">*.step cap 200f 1000f 100f</span><br><span class="line">.param pwidth=40u</span><br><span class="line">.step pwidth 10u 100u 10u</span><br><span class="line">.measure tran period trig v(Output) val=4.0 fall=3 targ v(Output) val=4.0 fall=4</span><br><span class="line">.measure tran falltime trig v(Output) val=4.5 fall=3 targ v(Output) val=0.5 fall=3</span><br><span class="line">.measure tran risetime trig v(Output) val=0.5 rise=3 targ v(Output) val=4.5 rise=3</span><br><span class="line">.measure tran delay trig v(Input) val=2.5 fall=3 targ v(Output) val=2.5 rise=3</span><br></pre></td></tr></table></figure>
 <p><strong>Hope you enjoy and get something you need(or
 like)!</strong></p>

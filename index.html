@@ -182,10 +182,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-05-12 23:22:36 / Modified: 23:26:25" itemprop="dateCreated datePublished" datetime="2023-05-12T23:22:36+08:00">2023-05-12</time>
+              <time title="Created: 2023-05-12 23:22:36" itemprop="dateCreated datePublished" datetime="2023-05-12T23:22:36+08:00">2023-05-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-05-13 11:46:24" itemprop="dateModified" datetime="2023-05-13T11:46:24+08:00">2023-05-13</time>
+              </span>
 
           
 
@@ -198,10 +204,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="purpose"><a href="#purpose" class="headerlink" title="purpose"></a>purpose</h3><p>We would be trying to learn and master the simulation of on-off characteristics and analyze the on-off characteristics for inverters, including the analysis of the rise and fall time, impact on the on-off characteristics by the variances of  $\frac{W}{L}_p$  , $\frac{W}{L}_n$ and load capacitance, design of a symmetric inverter based on the simulation results. Our ultimate goal is to study the relevant CAD knowledge both theoretically and experimentally.</p>
+          <h1 id="Experimental-record-for-the-transient-on-off-characteristics-analysis-of-the-circuit-Conducted-on-May-10th-2023"><a href="#Experimental-record-for-the-transient-on-off-characteristics-analysis-of-the-circuit-Conducted-on-May-10th-2023" class="headerlink" title="Experimental record for the transient on-off characteristics analysis of the circuit (Conducted on May 10th, 2023)"></a>Experimental record for the transient on-off characteristics analysis of the circuit (Conducted on May 10th, 2023)</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="purpose"><a href="#purpose" class="headerlink" title="purpose"></a>purpose</h3><p>We would be trying to learn and master the simulation of on-off characteristics and analyze the on-off characteristics for inverters, including the analysis of the rise and fall time, impact on the on-off characteristics by the variances of  $\frac{W}{L}_p$  , $\frac{W}{L}_n$ and load capacitance, design of a symmetric inverter based on the simulation results. Our ultimate goal is to study the relevant CAD knowledge both theoretically and experimentally.</p>
 <h3 id="Software"><a href="#Software" class="headerlink" title="Software"></a>Software</h3><p>Tanner tools(Including <strong>S-edit</strong> to graphically arrange the Metal-Oxide-Semiconductor field effect transistors(<strong>MOSFETs</strong>), <strong>T-spice</strong> to extract and edit the netlist and <strong>W-edit</strong> to exhibit the simulation results), OriginLab is used to perform the graphical analysis.</p>
 <h2 id="Experimental"><a href="#Experimental" class="headerlink" title="Experimental"></a>Experimental</h2><p>Firstly, using the samples planted in S-edit to construct an inverter manually. </p>
-<p><img src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305121437951.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/bigtigeraowu/Blog@main/img/202305131136070.png"></p>
 <p>where a n-MOSFET, a p-MOSFET, a capacitor, as well as three sources(Gnd, Vdd and a voltage pulse source) are employed to construct the basic structures of an inverter. Afterward the <strong>netlist</strong> was extracted to T-spice for simulation, the code is showing below:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">* SPICE netlist written by S-Edit Win32 7.03</span><br><span class="line">* Written on May 10, 2023 at 17:03:22</span><br><span class="line"></span><br><span class="line">* Waveform probing commands</span><br><span class="line">.probe</span><br><span class="line">.options probefilename=&quot;sedit.dat&quot;</span><br><span class="line">+ probesdbfile=&quot;E:\class2023\20230426.sdb&quot;</span><br><span class="line">+ probetopmodule=&quot;Inverter&quot;</span><br><span class="line"></span><br><span class="line">* Main circuit: Inverter</span><br><span class="line">C1 Output Gnd &#x27;cap&#x27;</span><br><span class="line">M2 Output Input Gnd Gnd NMOS L=1u W=40u AD=66p PD=24u AS=66p PS=24u </span><br><span class="line">M3 Output Input Vdd Vdd PMOS L=1u W=&#x27;pwidth&#x27; AD=66p PD=24u AS=66p PS=24u</span><br><span class="line">v4 Vdd Gnd 5.0</span><br><span class="line">v5 Input Gnd pulse(0.0 5.0 0 5n 5n 50n 200n)</span><br><span class="line">* pulse (lowv highv delay rise fall pulsewidth period)</span><br><span class="line">* End of main circuit: Inverter</span><br><span class="line">.include &quot;E:\TannerT\tanner\TSpice70\models\ml2_125.md&quot;</span><br><span class="line"></span><br><span class="line">.param cap=800f</span><br><span class="line">* .step cap 200f 1000f 100f</span><br><span class="line">.param pwidth=40u</span><br><span class="line">* .step pwidth 10u 100u 10u</span><br><span class="line">.measure tran period trig v(Output) val=4.0 fall=3 targ v(Output) val=4.0 fall=4</span><br><span class="line">.measure tran falltime trig v(Output) val=4.5 fall=3 targ v(Output) val=0.5 fall=3</span><br><span class="line">.measure tran risetime trig v(Output) val=0.5 rise=3 targ v(Output) val=4.5 rise=3</span><br><span class="line">.measure tran delay trig v(Input) val=2.5 fall=3 targ v(Output) val=2.5 rise=3</span><br></pre></td></tr></table></figure>
 
@@ -210,17 +216,17 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.tran/op 1n 1000n start=30n method=bdf</span><br><span class="line">.print tran v(Output,Gnd) v(Input,Gnd)</span><br></pre></td></tr></table></figure>
 
 <p>The results are shown as follows, a typical transient behavior of the inverter is shown as expected, with the output and the input locating on the opposite DC level.</p>
-<p><img src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305121456967.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/bigtigeraowu/Blog@main/img/202305131136136.png"></p>
 <h4 id="2-Size-variation"><a href="#2-Size-variation" class="headerlink" title="2.Size variation"></a>2.Size variation</h4><p>Next part involves the modification of the sizes of the MOSFETs to investigate their influences on the on-off characteristics, however, consider the fact that ‘L’(the length of the MOSFET) is constant, the only factors left for investigation are $W_p$ and $W_n$, or actually their ratio. Thus, we can further fix the value of $W_n$ and leave the $W_p$ as the only variable for our simulation. Let us head back to the code:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.param pwidth=40u</span><br><span class="line">.step pwidth 10u 100u 10u</span><br></pre></td></tr></table></figure>
 
 <p> Since we have already make the $W_p$ as ‘pwidth’, the only thing left for us is to give it a sweep, here we conduct the sweep from 10 microns to 100 microns with a step of 10. The results are shown as follows:</p>
-<p><img src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305121527458.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/bigtigeraowu/Blog@master/202305121527458.png"></p>
 <p>Here three parameters of $W_p$ are picked for exhibition, from the chart, it is obvious to obtain that there seems to be some electrical delay as the $W_p$ increases, but the rise and fall time would be <strong>hard</strong> to tell. Therefore, we could use the .measure command to determine the rise and fall time, along with the period and the delay time for the later use:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.measure tran period trig v(Output) val=4.0 fall=3 targ v(Output) val=4.0 fall=4</span><br><span class="line">.measure tran falltime trig v(Output) val=4.5 fall=3 targ v(Output) val=0.5 fall=3</span><br><span class="line">.measure tran risetime trig v(Output) val=0.5 rise=3 targ v(Output) val=4.5 rise=3</span><br><span class="line">.measure tran delay trig v(Input) val=2.5 fall=3 targ v(Output) val=2.5 rise=3</span><br></pre></td></tr></table></figure>
 
 <p>Here are four measures towards the period, fall time, rise time and delay, respectively. Graphical data for the dependences of the rise&#x2F;fall time along with the period and delay time on the $W_p$ are shown as follows:</p>
-<p><img src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305121554486.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/bigtigeraowu/Blog@main/img/202305131136949.png"></p>
 <p>from which we could see that the rise time decreases with $W_p$ while the fall time <strong>increases</strong> with $W_p$ at first but finally <strong>goes down</strong> with a peak value of about $1.46\times10^{-9}$ s. The delay time <strong>decreases</strong> with the $W_p$, indicating a faster speed of the inverter, and the period <strong>remains the same</strong> throughout the whole process.</p>
 <h4 id="3-Design-of-a-symmetric-inverter"><a href="#3-Design-of-a-symmetric-inverter" class="headerlink" title="3.Design of a symmetric inverter"></a>3.Design of a symmetric inverter</h4><p>Further, we would like to design a symmetric inverter, which possesses the same rise time and fall time. This can be done either by searching the intersection of the rise time and the fall time based on previous section, where we have listed their dependences on $W_p$, or by repeating the simulation to do some dichotomy. Dichotomy is picked and three rounds of simulation are conducted by keeping shrinking the searching scope:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.step pwidth 10u 100u 10u</span><br><span class="line">.step pwidth 80u 90u 1u</span><br><span class="line">.step pwidth 84u 85u 0.1u</span><br></pre></td></tr></table></figure>
@@ -231,8 +237,8 @@
 <h4 id="4-Capacitance-investigation"><a href="#4-Capacitance-investigation" class="headerlink" title="4.Capacitance investigation"></a>4.Capacitance investigation</h4><p>This part we focuses on the relations between the load capacitance and the key transient parameters(rise time, fall time, delay time and period). Same as above, we need to first define a sweep of the value of the ‘cap’:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.step cap 200f 1000f 100f</span><br></pre></td></tr></table></figure>
 
-<p>This is actually the same process like part 2, while the ‘<strong>.measure</strong>‘ function was also employed to determine the specific value of those parameters. Therefore, the results were obtained with ease::happy:</p>
-<p><img src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305121640067.png"></p>
+<p>This is actually the same process like part 2, while the ‘<strong>.measure</strong>‘ function was also employed to determine the specific value of those parameters. Therefore, img&#x2F;the results were obtained with ease::happy:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/bigtigeraowu/Blog@main/img/202305131136009.png"></p>
 <p>It can be inferred that both the rise time and the fall time, along with the delay time increases linearly(almost😎) with the capacitance, respectively, as is expected, while the period remains the same. </p>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>This time we have systematically simulated the transient characteristics of a typical inverter consists of two complementary MOSFETs. Two main parameters, the size of the MOSFET and the load capacitance are investigated to acquire the impact they have on the transient behavior of the inverter. The results we obtained are interesting: </p>
 <p>Firstly, the rise&#x2F;fall time, as well as the delay time can be a lot smaller if the $W_p$ keeps enlarging, indicating a faster response speed of the device, <em>i.e.</em>:a better transient performance, which is key to the present semiconductor industry. Theoretically, the rise&#x2F;fall time can be deduced from:</p>
@@ -243,12 +249,14 @@
 <p>From the previous study, $R&#x3D;\frac{1}{\beta(V_{dd}-V_{threshold})}$, while the $C_{out}$ in the RC model can be expressed as:</p>
 <p>$$C_{out}&#x3D;C_{FET}+C_{load}$$</p>
 <p>Combined with the expression of $R$, it is obvious that there would be a conflict between $R$ and $C$, since larger junction area will do lead to a smaller $R$, if the capacitance can be regarded as a constant, the rise&#x2F;fall time will become smaller. While the $C_l$ became larger, it will greatly extend the response time of the device.</p>
-<p>However, in the practical circumstances, the $C_{FET}$ can not be a constant for the extended area also induces great value of $C_{out}$, leading to a slower response speed. Moreover, larger area will also lead to more cost in the industry production. Besides, there are a lot more ‘conflicts’ like the $R$ and $C$ we are investigating, which are the main barriers for the semiconductor industries nowadays. Perhaps we may be finally able to figure out a general solution to produce fast devices with a low cost? Or maybe further, good and cheap? I am not sure. However, we should never give up.</p>
+<p>However, in the practical circumstances, the $C_{FET}$ will not be a constant for the extended area, leading to a slower response speed. Moreover, larger area will also lead to more cost in the industry production. Besides, there are a lot more ‘conflicts’ like the $R$ and $C$ we are investigating, which are the main barriers for the semiconductor industries nowadays. Perhaps we may be finally able to figure out a general solution to produce fast devices with a low cost? Or maybe further, better and cheaper? I am not sure. However, we should never give up on this.</p>
 <p>In the end, there is an overview of the codes for the simulations conducted on May 10th, 2023.</p>
 <p>Yifan Gao</p>
 <p>19720202202651</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">* SPICE netlist written by S-Edit Win32 7.03</span><br><span class="line">* Written on May 10, 2023 at 17:03:22</span><br><span class="line"></span><br><span class="line">* Waveform probing commands</span><br><span class="line">.probe</span><br><span class="line">.options probefilename=&quot;sedit.dat&quot;</span><br><span class="line">+ probesdbfile=&quot;E:\class2023\20230426.sdb&quot;</span><br><span class="line">+ probetopmodule=&quot;Inverter&quot;</span><br><span class="line"></span><br><span class="line">* Main circuit: Inverter</span><br><span class="line">C1 Output Gnd &#x27;cap&#x27;</span><br><span class="line">M2 Output Input Gnd Gnd NMOS L=1u W=40u AD=66p PD=24u AS=66p PS=24u </span><br><span class="line">M3 Output Input Vdd Vdd PMOS L=1u W=&#x27;pwidth&#x27; AD=66p PD=24u AS=66p PS=24u</span><br><span class="line">v4 Vdd Gnd 5.0</span><br><span class="line">v5 Input Gnd pulse(0.0 5.0 0 5n 5n 50n 200n)</span><br><span class="line">* pulse (lowv highv delay rise fall pulsewidth period)</span><br><span class="line">* End of main circuit: Inverter</span><br><span class="line">.include &quot;E:\TannerT\tanner\TSpice70\models\ml2_125.md&quot;</span><br><span class="line">.tran/op 1n 1000n start=30n method=bdf</span><br><span class="line">.print tran v(Output,Gnd) v(Input,Gnd)</span><br><span class="line">.param cap=800f</span><br><span class="line">.step cap 200f 1000f 100f</span><br><span class="line">.param pwidth=40u</span><br><span class="line">.step pwidth 10u 100u 10u</span><br><span class="line">.measure tran period trig v(Output) val=4.0 fall=3 targ v(Output) val=4.0 fall=4</span><br><span class="line">.measure tran falltime trig v(Output) val=4.5 fall=3 targ v(Output) val=0.5 fall=3</span><br><span class="line">.measure tran risetime trig v(Output) val=0.5 rise=3 targ v(Output) val=4.5 rise=3</span><br><span class="line">.measure tran delay trig v(Input) val=2.5 fall=3 targ v(Output) val=2.5 rise=3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">* SPICE netlist written by S-Edit Win32 7.03</span><br><span class="line">* Written on May 10, 2023 at 17:03:22</span><br><span class="line"></span><br><span class="line">* Waveform probing commands</span><br><span class="line">.probe</span><br><span class="line">.options probefilename=&quot;sedit.dat&quot;</span><br><span class="line">+ probesdbfile=&quot;E:\class2023\20230426.sdb&quot;</span><br><span class="line">+ probetopmodule=&quot;Inverter&quot;</span><br><span class="line"></span><br><span class="line">* Main circuit: Inverter</span><br><span class="line">C1 Output Gnd &#x27;cap&#x27;</span><br><span class="line">M2 Output Input Gnd Gnd NMOS L=1u W=40u AD=66p PD=24u AS=66p PS=24u </span><br><span class="line">M3 Output Input Vdd Vdd PMOS L=1u W=&#x27;pwidth&#x27; AD=66p PD=24u AS=66p PS=24u</span><br><span class="line">v4 Vdd Gnd 5.0</span><br><span class="line">v5 Input Gnd pulse(0.0 5.0 0 5n 5n 50n 200n)</span><br><span class="line">* pulse (lowv highv delay rise fall pulsewidth period)</span><br><span class="line">* End of main circuit: Inverter</span><br><span class="line">.include &quot;E:\TannerT\tanner\TSpice70\models\ml2_125.md&quot;</span><br><span class="line">.tran/op 1n 1000n start=30n method=bdf</span><br><span class="line">.print tran v(Output,Gnd) v(Input,Gnd)</span><br><span class="line">.param cap=800f</span><br><span class="line">*.step cap 200f 1000f 100f</span><br><span class="line">.param pwidth=40u</span><br><span class="line">.step pwidth 10u 100u 10u</span><br><span class="line">.measure tran period trig v(Output) val=4.0 fall=3 targ v(Output) val=4.0 fall=4</span><br><span class="line">.measure tran falltime trig v(Output) val=4.5 fall=3 targ v(Output) val=0.5 fall=3</span><br><span class="line">.measure tran risetime trig v(Output) val=0.5 rise=3 targ v(Output) val=4.5 rise=3</span><br><span class="line">.measure tran delay trig v(Input) val=2.5 fall=3 targ v(Output) val=2.5 rise=3</span><br></pre></td></tr></table></figure>
 
+<p><strong>Hope you enjoy and get something you need(or like)!</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/bigtigeraowu/Blog@main/img/202305131144183.jpg" alt="A cup of coffee by Ewa(one of my friends)"></p>
 
       
     </div>
@@ -397,7 +405,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-05-13 11:29:48" itemprop="dateModified" datetime="2023-05-13T11:29:48+08:00">2023-05-13</time>
+                <time title="Modified: 2023-05-13 11:36:25" itemprop="dateModified" datetime="2023-05-13T11:36:25+08:00">2023-05-13</time>
               </span>
 
           
@@ -411,37 +419,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to my blog! As the first blog, I should give everyone a
-introduction, at least a brief one about me. By the way, this post is
-adapted from the original one generated by Hexo.</p>
-<h2 id="who-am-i">Who am I?</h2>
-<p>I am Jagger, my Chinese name is Gao. Currently an undergraduate in a
-University by the seaside.</p>
-<p>My Github page is <a target="_blank" rel="noopener" href="https://github.com/bigtigeraowu">here</a>,
-where the contact details can be found if you are interested.(Though I
-do not think anyone will be interested. Well, what's the famous lyrics
-said, 'save it for the future!')</p>
-<p>My major is physics, therefore, I like it. Or on the contrary, since
-I like it, I major in it. The knowledges must be respected.</p>
-<p>As for other details or characteristics of me, I would rather not
-say, since I do not really like talking, especially self introduction.
-However, if I keep posting the interesting blogs, maybe~</p>
-<h2 id="why-do-i-set-this-blog">Why do I set this blog?</h2>
-<p>Well, actually I was always considering to build a website, or just a
-blog of myself. From my perspective, most of us, at least most of the
-people by my side, lack the persistency or the will to keep records.
-Perhaps we will broaden this topic later, however, for now, let's go
-straight.</p>
-<p>This blog is mainly to maintain my memories, thoughts, also the
-interesting knowledges come to my life. Well, if there are any updates
-to the main ideas, I will catch up.</p>
-<h2 id="my-publications">My publications</h2>
-<p>No, there is no publication for now. :(</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/bigtigeraowu/Blog@main/img/202305131128797.jpg"
-alt="After rainfall" /> <img
-src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305041830397.jpg"
-alt="After rainfall" /></p>
+          <p>Welcome to my blog! As the first blog, I should give everyone a introduction, at least a brief one about me. By the way, this post is adapted from the original one generated by Hexo.</p>
+<h2 id="Who-am-I"><a href="#Who-am-I" class="headerlink" title="Who am I?"></a>Who am I?</h2><p>I am Jagger, my Chinese name is Gao. Currently an undergraduate in a University by the seaside. </p>
+<p>My Github page is <a target="_blank" rel="noopener" href="https://github.com/bigtigeraowu">here</a>, where the contact details can be found if you are interested.(Though I do not think anyone will be interested. Well, what’s the famous lyrics said, ‘save it for the future!’)</p>
+<p>My major is physics, therefore, I like it. Or on the contrary, since I like it, I major in it. The knowledges must be respected. </p>
+<p>As for other details or characteristics of me, I would rather not say, since I do not really like talking, especially self introduction. However, if I keep posting the interesting blogs, maybe~</p>
+<h2 id="Why-do-I-set-this-blog"><a href="#Why-do-I-set-this-blog" class="headerlink" title="Why do I set this blog?"></a>Why do I set this blog?</h2><p>Well, actually I was always considering to build a website, or just a blog of myself. From my perspective, most of us, at least most of the people by my side, lack the persistency or the will to keep records. Perhaps we will broaden this topic later, however, for now, let’s go straight.</p>
+<p>This blog is mainly to maintain my memories, thoughts, also the interesting knowledges come to my life. Well, if there are any updates to the main ideas, I will catch up.</p>
+<h2 id="My-publications"><a href="#My-publications" class="headerlink" title="My publications"></a>My publications</h2><p>No, there is no publication for now. :(</p>
+<p><strong>If you are in a good network condition, you will be able to see two beautiful images named ‘after rainfall’, which were taken on the beach near my university. If there is only one available, you may want to improve your connection quality to gain better experience in my blog.</strong><br><img src="https://cdn.jsdelivr.net/gh/bigtigeraowu/Blog@main/img/202305131128797.jpg" alt="After rainfall"><br><img src="https://raw.githubusercontent.com/bigtigeraowu/Blog/master/202305041830397.jpg" alt="After rainfall"></p>
 
       
     </div>
